@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        
+        let parseConfig = ParseClientConfiguration {(ParseMutableClientConfiguration)  in
+        
+            
+            //Accessing pikicha via id & keys
+            ParseMutableClientConfiguration.applicationId = "FWFjiDk12GhLzWJVK5VC1Q39BCGXDu92voj8HXgf"
+            ParseMutableClientConfiguration.clientKey = "2QDpKGHvyTbvOyf9kM3yS1fuswLCzBBAd68FqECs"
+            ParseMutableClientConfiguration.server = "https://parseapi.back4app.com/"
+            ParseMutableClientConfiguration.isLocalDatastoreEnabled = true
+            
+        
+        }
+        
+        Parse.initialize(with: parseConfig)
+        
+        
+        // Track statistics on application openings.
+        PFAnalytics.trackAppOpened(launchOptions: launchOptions)
+        
+        // call login function
+        login()
+        
+        // color of window
+        window?.backgroundColor = .white
+        
+        
+        //Mailgun Init
+       
+       
         return true
     }
 
@@ -41,6 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func login() {
+        
+        // remember user's login
+        let username : String? = UserDefaults.standard.string(forKey: "username")
+        
+        // if loged in
+        if username != nil {
+            
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let myTabBar = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+            window?.rootViewController = myTabBar
+        }
+        
+    }
 
 }
 
