@@ -21,8 +21,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var repeatPassword: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var fullnameTxt: UITextField!
-    //@IBOutlet weak var bioTxt: UITextField!
-   // @IBOutlet weak var webTxt: UITextField!
+    @IBOutlet weak var bioTxt: UITextField!
+    @IBOutlet weak var webTxt: UITextField!
     
     // buttons
     @IBOutlet weak var signUpBtn: UIButton!
@@ -79,8 +79,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         repeatPassword.frame = CGRect(x: 10, y: passwordTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
         emailTxt.frame = CGRect(x: 10, y: repeatPassword.frame.origin.y + 60, width: self.view.frame.size.width - 20, height: 30)
         fullnameTxt.frame = CGRect(x: 10, y: emailTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        bioTxt.frame = CGRect(x: 10, y: fullnameTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
+        webTxt.frame = CGRect(x: 10, y: bioTxt.frame.origin.y + 40, width: self.view.frame.size.width - 20, height: 30)
         
-        signUpBtn.frame = CGRect(x: 20, y: fullnameTxt.frame.origin.y + 50, width: self.view.frame.size.width / 4, height: 30)
+        signUpBtn.frame = CGRect(x: 20, y: webTxt.frame.origin.y + 50, width: self.view.frame.size.width / 4, height: 30)
         signUpBtn.layer.cornerRadius = signUpBtn.frame.size.width / 20
         
         cancelBtn.frame = CGRect(x: self.view.frame.size.width - self.view.frame.size.width / 4 - 20, y: signUpBtn.frame.origin.y, width: self.view.frame.size.width / 4, height: 30)
@@ -158,12 +160,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // if fields are empty
         if (usernameTxt.text!.isEmpty || passwordTxt.text!.isEmpty || repeatPassword.text!.isEmpty || emailTxt.text!.isEmpty || fullnameTxt.text!.isEmpty) {
-            
-            // alert message
-            let alert = UIAlertController(title: "", message: "All fields are required", preferredStyle: UIAlertControllerStyle.alert)
-            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-            alert.addAction(ok)
-            self.present(alert, animated: true, completion: nil)
+             ProgressHUD.dismiss()
+            // show alert message
+            let alert = SCLAlertView()
+            _ = alert.showWarning("Error", subTitle: "All fields are required")
+         
             
             return
         }
@@ -171,27 +172,29 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         // if different passwords
         if passwordTxt.text != repeatPassword.text {
             
-            // alert message
-            let alert = UIAlertController(title: "", message: "Passwords do not match", preferredStyle: UIAlertControllerStyle.alert)
-            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-            alert.addAction(ok)
-            self.present(alert, animated: true, completion: nil)
+             ProgressHUD.dismiss()
+            // show alert message
             
+            let alert = SCLAlertView()
+            _ = alert.showWarning("Error", subTitle: "Passwords do not match")
+
             return
         }
         
         
-        // send data to server to related collumns
+        // send data to server to related columns
         let user = PFUser()
         user.username = usernameTxt.text?.lowercased()
         user.email = emailTxt.text?.lowercased()
         user.password = passwordTxt.text
         user["fullname"] = fullnameTxt.text?.lowercased()
-        
+        user["bio"] = bioTxt.text
+        user["web"] = webTxt.text?.lowercased()
         
         // in Edit Profile it's gonna be assigned
         user["phone"] = ""
         user["gender"] = ""
+        
         
         // convert our image for sending to server
         let avaData = UIImageJPEGRepresentation(avaImg.image!, 0.5)
@@ -202,11 +205,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         user.signUpInBackground { (success, error) -> Void in
             if success {
                 print("registered")
-                
+                ProgressHUD.show("Creating Account...", interaction: false)
                 // remember logged in user
                 UserDefaults.standard.set(user.username, forKey: "username")
                 UserDefaults.standard.synchronize()
-                
+                ProgressHUD.dismiss()
                 // call login func from AppDelegate.swift class
                 let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.login()
@@ -218,10 +221,12 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             } else {
                 
                 // show alert message
-                let alert = UIAlertController(title: "Error", message: error!.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+                
+                let alert = SCLAlertView()
+                _ = alert.showWarning("Error", subTitle: error!.localizedDescription)
+
+                
+              
             }
         }
         

@@ -45,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // color of window
         window?.backgroundColor = .white
         
-        
-        //Mailgun Init
+       
        
        
         return true
@@ -81,6 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // if loged in
         if username != nil {
+            
+            ProgressHUD.dismiss()
             
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let myTabBar = storyboard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
