@@ -14,7 +14,7 @@ class upload: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     // UI objects
     @IBOutlet weak var picImg: UIImageView!
     @IBOutlet weak var titleTxt: UITextView!
-    @IBOutlet weak var publishBtn: UIButton!
+    @IBOutlet weak var publishBtn: CustomizableButton!
     @IBOutlet weak var removeBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIBarButtonItem!
     
@@ -146,11 +146,11 @@ class upload: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     func alignment() {
         
         let width = self.view.frame.size.width
-        let height = self.view.frame.size.height
+        
         
         picImg.frame = CGRect(x: 15, y: 15, width: width / 4.5, height: width / 4.5)
         titleTxt.frame = CGRect(x: picImg.frame.size.width + 25, y: picImg.frame.origin.y, width: width / 1.488, height: picImg.frame.size.height)
-        publishBtn.frame = CGRect(x: 0, y: height / 1.20, width: width, height: width / 3)
+        publishBtn.frame = CGRect(x: 130, y: 180, width: 100, height: 50)
         removeBtn.frame = CGRect(x: picImg.frame.origin.x, y: picImg.frame.origin.y + picImg.frame.size.height, width: picImg.frame.size.width, height: 20)
     }
     
@@ -231,12 +231,14 @@ class upload: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     @IBAction func cancelBtn(_ sender: Any) {
         self.viewDidLoad()
+        self.titleTxt.text = ""
         self.tabBarController!.selectedIndex = 0
     }
     
     // clicked remove button
     @IBAction func removeBtn_clicked(_ sender: AnyObject) {
         self.viewDidLoad()
+        self.titleTxt.text = ""
     }
 
 }

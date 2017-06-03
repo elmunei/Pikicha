@@ -340,7 +340,7 @@ class guest: UICollectionViewController {
         self.navigationController?.pushViewController(followings, animated: true)
         
     }
-    /*
+    
     
     // go post
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -349,8 +349,8 @@ class guest: UICollectionViewController {
         postuuid.append(uuidArray[indexPath.row])
         
         // navigate to post view controller
-        let post = self.storyboard?.instantiateViewController(withIdentifier: "postVC") as! postVC
+        let post = self.storyboard?.instantiateViewController(withIdentifier: "posts") as! posts
         self.navigationController?.pushViewController(post, animated: true)
     }
-    */
+    
 }

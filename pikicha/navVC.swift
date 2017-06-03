@@ -8,11 +8,14 @@
 
 import UIKit
 
+
 class navVC: UINavigationController {
 
     // default func
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationBar.titleTextAttributes = [NSFontAttributeName : "BalooChettan"]
         
         // color of title at the top in nav controller
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]

@@ -23,6 +23,8 @@ class home: UICollectionViewController {
     var picArray = [PFFile]()
     
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         refresh()
         
@@ -142,6 +144,7 @@ class home: UICollectionViewController {
                         self.uuidArray.append(object.value(forKey: "uuid") as! String)
                         self.picArray.append(object.value(forKey: "pic") as! PFFile)
                     }
+                    
                     
                     self.collectionView?.reloadData()
                     
@@ -312,7 +315,7 @@ class home: UICollectionViewController {
         }
         
     }
- /*
+ 
     
     // go post
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -321,8 +324,8 @@ class home: UICollectionViewController {
         postuuid.append(uuidArray[indexPath.row])
         
         // navigate to post view controller
-        let post = self.storyboard?.instantiateViewController(withIdentifier: "postVC") as! postVC
+        let post = self.storyboard?.instantiateViewController(withIdentifier: "posts") as! posts
         self.navigationController?.pushViewController(post, animated: true)
     }
-*/
+
 }
