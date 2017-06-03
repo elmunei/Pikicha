@@ -166,7 +166,7 @@ class posts: UITableViewController {
 
         // asign index
         cell.usernameBtn.layer.setValue(indexPath, forKey: "index")
-       // cell.commentBtn.layer.setValue(indexPath, forKey: "index")
+        cell.commentBtn.layer.setValue(indexPath, forKey: "index")
        // cell.moreBtn.layer.setValue(indexPath, forKey: "index")
         
 //        
@@ -219,27 +219,27 @@ class posts: UITableViewController {
         }
         
     }
+
+    
+    // clicked comment button
+    @IBAction func commentBtn_click(_ sender: AnyObject) {
+        
+        // call index of button
+        let i = sender.layer.value(forKey: "index") as! IndexPath
+        
+        // call cell to call further cell data
+        let cell = tableView.cellForRow(at: i) as! postsCell
+        
+        // send related data to global variables
+        commentuuid.append(cell.uuidLbl.text!)
+        commentowner.append(cell.usernameBtn.titleLabel!.text!)
+        
+        // go to comments. present vc
+        let comment = self.storyboard?.instantiateViewController(withIdentifier: "commentVC") as! commentVC
+        self.navigationController?.pushViewController(comment, animated: true)
+    }
+    
 //
-//    
-//    // clicked comment button
-//    @IBAction func commentBtn_click(_ sender: AnyObject) {
-//        
-//        // call index of button
-//        let i = sender.layer.value(forKey: "index") as! IndexPath
-//        
-//        // call cell to call further cell data
-//        let cell = tableView.cellForRow(at: i) as! postsCell
-//        
-//        // send related data to global variables
-//        commentuuid.append(cell.uuidLbl.text!)
-//        commentowner.append(cell.usernameBtn.titleLabel!.text!)
-//        
-//        // go to comments. present vc
-//        let comment = self.storyboard?.instantiateViewController(withIdentifier: "commentVC") as! commentVC
-//        self.navigationController?.pushViewController(comment, animated: true)
-//    }
-//    
-//    
 //    // clicked more button
 //    @IBAction func moreBtn_click(_ sender: AnyObject) {
 //        

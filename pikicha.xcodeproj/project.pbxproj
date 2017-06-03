@@ -55,8 +55,10 @@
 		855682BC1EDD599D00879DDF /* RevealingSplashView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855682BB1EDD599D00879DDF /* RevealingSplashView.framework */; };
 		8562FE941EDDF75E00D4388D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8562FE911EDDF75E00D4388D /* ProgressHUD.bundle */; };
 		8562FE951EDDF75E00D4388D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8562FE931EDDF75E00D4388D /* ProgressHUD.m */; };
-		8562FE9C1EDDF9B900D4388D /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8562FE9B1EDDF9B900D4388D /* test.swift */; };
+		8562FE9C1EDDF9B900D4388D /* textViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8562FE9B1EDDF9B900D4388D /* textViewPlaceholder.swift */; };
 		857C7D321EE247D90037B9BA /* CustomizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C7D311EE247D90037B9BA /* CustomizableButton.swift */; };
+		857C7D341EE2EF7F0037B9BA /* commentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C7D331EE2EF7F0037B9BA /* commentVC.swift */; };
+		857C7D361EE2EFBA0037B9BA /* commentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C7D351EE2EFBA0037B9BA /* commentTableViewCell.swift */; };
 		C8875DFC9C19AC7A89EF7AD6 /* Pods_pikichaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAC07E028E2E57E8D6F1998 /* Pods_pikichaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,9 +138,11 @@
 		8562FE911EDDF75E00D4388D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		8562FE921EDDF75E00D4388D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		8562FE931EDDF75E00D4388D /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
-		8562FE9B1EDDF9B900D4388D /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		8562FE9B1EDDF9B900D4388D /* textViewPlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textViewPlaceholder.swift; sourceTree = "<group>"; };
 		8562FE9D1EDDFB8D00D4388D /* Pikicha-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Pikicha-Bridging-Header.h"; sourceTree = "<group>"; };
 		857C7D311EE247D90037B9BA /* CustomizableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizableButton.swift; sourceTree = "<group>"; };
+		857C7D331EE2EF7F0037B9BA /* commentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentVC.swift; sourceTree = "<group>"; };
+		857C7D351EE2EFBA0037B9BA /* commentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commentTableViewCell.swift; sourceTree = "<group>"; };
 		9BABA904A324A878066E4471 /* Pods-pikichaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pikichaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pikichaTests/Pods-pikichaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BAAC07E028E2E57E8D6F1998 /* Pods_pikichaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pikichaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F44A2D1FFDCB6E99E88C71 /* Pods-pikichaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pikichaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pikichaUITests/Pods-pikichaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				851821221ED8A896002DED07 /* AppDelegate.swift */,
 				8562FE9D1EDDFB8D00D4388D /* Pikicha-Bridging-Header.h */,
 				850DF47C1EDD85140050AD0C /* home.swift */,
+				857C7D331EE2EF7F0037B9BA /* commentVC.swift */,
+				857C7D351EE2EFBA0037B9BA /* commentTableViewCell.swift */,
 				850C0A581EE1AFE700DA17BE /* postsCell.swift */,
 				854364701EDECB92004C482A /* guest.swift */,
 				850DF4821EDDB9BE0050AD0C /* Followers.swift */,
@@ -322,7 +328,7 @@
 				85194B8C1EDCEDCC007C7BB9 /* PMAlertController.swift */,
 				85194B8D1EDCEDCC007C7BB9 /* PMAlertController.xib */,
 				85194B8E1EDCEDCC007C7BB9 /* SCLAlertView.swift */,
-				8562FE9B1EDDF9B900D4388D /* test.swift */,
+				8562FE9B1EDDF9B900D4388D /* textViewPlaceholder.swift */,
 			);
 			name = "Custom Code";
 			sourceTree = "<group>";
@@ -631,16 +637,18 @@
 				85194B911EDCEDCC007C7BB9 /* PMAlertAction.swift in Sources */,
 				8518216E1ED9C874002DED07 /* SignUpViewController.swift in Sources */,
 				854364751EDF7C63004C482A /* upload.swift in Sources */,
+				857C7D341EE2EF7F0037B9BA /* commentVC.swift in Sources */,
 				85194B8F1EDCEDCC007C7BB9 /* CustomizableTextfield.swift in Sources */,
 				850C0A591EE1AFE700DA17BE /* postsCell.swift in Sources */,
 				85194B921EDCEDCC007C7BB9 /* PMAlertController.swift in Sources */,
 				850C0A5B1EE21B0600DA17BE /* tabBarVC.swift in Sources */,
-				8562FE9C1EDDF9B900D4388D /* test.swift in Sources */,
+				8562FE9C1EDDF9B900D4388D /* textViewPlaceholder.swift in Sources */,
 				850DF4851EDDB9ED0050AD0C /* followersCell.swift in Sources */,
 				850DF47F1EDD85420050AD0C /* header.swift in Sources */,
 				854364711EDECB92004C482A /* guest.swift in Sources */,
 				85194B941EDCEDCC007C7BB9 /* SCLAlertView.swift in Sources */,
 				85194B901EDCEDCC007C7BB9 /* CustomizableView.swift in Sources */,
+				857C7D361EE2EFBA0037B9BA /* commentTableViewCell.swift in Sources */,
 				850DF4831EDDB9BE0050AD0C /* Followers.swift in Sources */,
 				8518216C1ED9C858002DED07 /* SignInViewController.swift in Sources */,
 				851821231ED8A896002DED07 /* AppDelegate.swift in Sources */,
