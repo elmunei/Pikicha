@@ -12,6 +12,8 @@ import Parse
 
 class ResetPasswordViewController: UIViewController {
     
+    @IBOutlet weak var label: UILabel!
+    
     // textfield
     @IBOutlet weak var emailTxt: UITextField!
     
@@ -24,8 +26,14 @@ class ResetPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        label.font = UIFont(name: "BalooChettan", size: 35)
+        label.textColor = UIColor.white
+        label.shadowColor = UIColor.black
+        
+        
         // alignment
-        emailTxt.frame = CGRect(x: 10, y: 120, width: self.view.frame.size.width - 20, height: 30)
+        label.frame = CGRect(x: 10, y: 60, width: self.view.frame.size.width - 20, height: 80)
+        emailTxt.frame = CGRect(x: 10, y: label.frame.origin.y + 100, width: self.view.frame.size.width - 20, height: 30)
         
         resetBtn.frame = CGRect(x: 20, y: emailTxt.frame.origin.y + 50, width: self.view.frame.size.width / 4, height: 30)
         resetBtn.layer.cornerRadius = resetBtn.frame.size.width / 20
@@ -50,28 +58,25 @@ class ResetPasswordViewController: UIViewController {
         // email textfield is empty
         if emailTxt.text!.isEmpty {
             
-            // show alert message
-            let alert = UIAlertController(title: "", message: "Email field is empty", preferredStyle: UIAlertControllerStyle.alert)
-            let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-            alert.addAction(ok)
-            self.present(alert, animated: true, completion: nil)
+            
+            
+           
         }
         
         // request for reseting password
         PFUser.requestPasswordResetForEmail(inBackground: emailTxt.text!) { (success, error) -> Void in
             if success {
                 
-                // show alert message
-                let alert = UIAlertController(title: "", message: "A reset password link has been sent to \(String(describing: self.emailTxt.text!))", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = SCLAlertView()
+                _ = alert.showSuccess("Success", subTitle: "A reset password link has been sent to \(String(describing: self.emailTxt.text!))")
                 
-                // if pressed OK call self.dismiss.. function
-                let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
-                    self.dismiss(animated: true, completion: nil)
-                })
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
+              
+               
             } else {
-                print(error?.localizedDescription as Any)
+                let alert = SCLAlertView()
+                _ = alert.showError("Error", subTitle: error!.localizedDescription)
+
+               
             }
         }
         
