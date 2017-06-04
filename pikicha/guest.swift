@@ -33,7 +33,7 @@ class guest: UICollectionViewController {
         self.collectionView?.backgroundColor = .white
         
         // top title
-        self.navigationItem.title = guestname.last?.lowercased()
+        self.navigationItem.title = guestname.last?.uppercased()
         
         // new back button
         self.navigationItem.hidesBackButton = true
@@ -202,7 +202,7 @@ class guest: UICollectionViewController {
                 // shown wrong user
                 if objects!.isEmpty {
                     // call alert
-                    let alert = UIAlertController(title: "\(guestname.last!.lowercased())", message: "is not existing", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "🚫", message: "User \(guestname.last!.uppercased()) not found!", preferredStyle: UIAlertControllerStyle.alert)
                     let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (UIAlertAction) -> Void in
                         _ = self.navigationController?.popViewController(animated: true)
                     })

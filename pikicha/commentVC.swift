@@ -320,35 +320,35 @@ class commentVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITa
         commentObj["comment"] = commentTxt.text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         commentObj.saveEventually()
         
-//        // STEP 3. Send #hashtag to server
-//        let words:[String] = commentTxt.text!.components(separatedBy: CharacterSet.whitespacesAndNewlines)
-//        
-//        // define taged word
-//        for var word in words {
-//            
-//            // save #hasthag in server
-//            if word.hasPrefix("#") {
-//                
-//                // cut symbold
-//                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
-//                word = word.trimmingCharacters(in: CharacterSet.symbols)
-//                
-//                let hashtagObj = PFObject(className: "hashtags")
-//                hashtagObj["to"] = commentuuid.last
-//                hashtagObj["by"] = PFUser.current()?.username
-//                hashtagObj["hashtag"] = word.lowercased()
-//                hashtagObj["comment"] = commentTxt.text
-//                hashtagObj.saveInBackground(block: { (success, error) -> Void in
-//                    if success {
-//                        print("hashtag \(word) is created")
-//                    } else {
-//                        print(error!.localizedDescription)
-//                    }
-//                })
-//            }
-//        }
-//        
-//        
+        // STEP 3. Send #hashtag to server
+        let words:[String] = commentTxt.text!.components(separatedBy: CharacterSet.whitespacesAndNewlines)
+        
+        // define tagged word
+        for var word in words {
+            
+            // save #hasthag in server
+            if word.hasPrefix("#") {
+                
+                // cut symbold
+                word = word.trimmingCharacters(in: CharacterSet.punctuationCharacters)
+                word = word.trimmingCharacters(in: CharacterSet.symbols)
+                
+                let hashtagObj = PFObject(className: "hashtags")
+                hashtagObj["to"] = commentuuid.last
+                hashtagObj["by"] = PFUser.current()?.username
+                hashtagObj["hashtag"] = word.lowercased()
+                hashtagObj["comment"] = commentTxt.text
+                hashtagObj.saveInBackground(block: { (success, error) -> Void in
+                    if success {
+                        print("hashtag \(word) is created")
+                    } else {
+                        print(error!.localizedDescription)
+                    }
+                })
+            }
+        }
+        
+//
 //        // STEP 4. Send notification as @mention
 //        var mentionCreated = Bool()
 //        
@@ -449,33 +449,33 @@ class commentVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITa
             cell.dateLbl.text = "\(String(describing: difference.weekOfMonth!))w."
         }
         
-//        
-//        // @mention is tapped
-//        cell.commentLbl.userHandleLinkTapHandler = { label, handle, rang in
-//            var mention = handle
-//            mention = String(mention.characters.dropFirst())
-//            
-//            // if tapped on @currentUser go home, else go guest
-//            if mention.lowercased() == PFUser.current()?.username {
-//                let home = self.storyboard?.instantiateViewController(withIdentifier: "homeVC") as! homeVC
-//                self.navigationController?.pushViewController(home, animated: true)
-//            } else {
-//                guestname.append(mention.lowercased())
-//                let guest = self.storyboard?.instantiateViewController(withIdentifier: "guestVC") as! guestVC
-//                self.navigationController?.pushViewController(guest, animated: true)
-//            }
-//        }
-//        
-//        // #hashtag is tapped
-//        cell.commentLbl.hashtagLinkTapHandler = { label, handle, range in
-//            var mention = handle
-//            mention = String(mention.characters.dropFirst())
-//            hashtag.append(mention.lowercased())
-//            let hashvc = self.storyboard?.instantiateViewController(withIdentifier: "hashtagsVC") as! hashtagsVC
-//            self.navigationController?.pushViewController(hashvc, animated: true)
-//        }
-//        
-//        
+        
+        // @mention is tapped
+        cell.commentLbl.userHandleLinkTapHandler = { label, handle, rang in
+            var mention = handle
+            mention = String(mention.characters.dropFirst())
+            
+            // if tapped on @currentUser go home, else go guest
+            if mention.lowercased() == PFUser.current()?.username {
+                let home = self.storyboard?.instantiateViewController(withIdentifier: "home") as! home
+                self.navigationController?.pushViewController(home, animated: true)
+            } else {
+                guestname.append(mention.lowercased())
+                let guest = self.storyboard?.instantiateViewController(withIdentifier: "guest") as! guest
+                self.navigationController?.pushViewController(guest, animated: true)
+            }
+        }
+        
+        // #hashtag is tapped
+        cell.commentLbl.hashtagLinkTapHandler = { label, handle, range in
+            var mention = handle
+            mention = String(mention.characters.dropFirst())
+            hashtag.append(mention.lowercased())
+            let hashvc = self.storyboard?.instantiateViewController(withIdentifier: "hashtagsVC") as! hashtagsVC
+            self.navigationController?.pushViewController(hashvc, animated: true)
+        }
+        
+        
         // assign indexes of buttons
         cell.usernameBtn.layer.setValue(indexPath, forKey: "index")
         
@@ -534,17 +534,17 @@ class commentVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITa
                 }
             })
             
-//            // STEP 2. Delete #hashtag from server
-//            let hashtagQuery = PFQuery(className: "hashtags")
-//            hashtagQuery.whereKey("to", equalTo: commentuuid.last!)
-//            hashtagQuery.whereKey("by", equalTo: cell.usernameBtn.titleLabel!.text!)
-//            hashtagQuery.whereKey("comment", equalTo: cell.commentLbl.text!)
-//            hashtagQuery.findObjectsInBackground(block: { (objects, error) -> Void in
-//                for object in objects! {
-//                    object.deleteEventually()
-//                }
-//            })
-//            
+            // STEP 2. Delete #hashtag from server
+            let hashtagQuery = PFQuery(className: "hashtags")
+            hashtagQuery.whereKey("to", equalTo: commentuuid.last!)
+            hashtagQuery.whereKey("by", equalTo: cell.usernameBtn.titleLabel!.text!)
+            hashtagQuery.whereKey("comment", equalTo: cell.commentLbl.text!)
+            hashtagQuery.findObjectsInBackground(block: { (objects, error) -> Void in
+                for object in objects! {
+                    object.deleteEventually()
+                }
+            })
+//
 //            // STEP 3. Delete notification: mention comment
 //            let newsQuery = PFQuery(className: "news")
 //            newsQuery.whereKey("by", equalTo: cell.usernameBtn.titleLabel!.text!)
@@ -595,9 +595,12 @@ class commentVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITa
             complainObj["owner"] = cell.usernameBtn.titleLabel?.text
             complainObj.saveInBackground(block: { (success, error) -> Void in
                 if success {
-                    self.alert("Your report has been submitted", message: "Thank You! We will review your complaint")
+                    
+                    let alert = SCLAlertView()
+                    _ = alert.showSuccess("Error", subTitle: "Your report has been submitted. We will review your complaint. Thank You")
                 } else {
-                    self.alert("ERROR", message: error!.localizedDescription)
+                    let alert = SCLAlertView()
+                    _ = alert.showError("Error", subTitle: error!.localizedDescription)
                 }
 
             })
@@ -613,7 +616,7 @@ class commentVC: UIViewController, UITextViewDelegate, UITableViewDelegate, UITa
         
         // comment belongs to user
         if cell.usernameBtn.titleLabel?.text == PFUser.current()?.username {
-            return [delete, address]
+            return [delete]
         }
             
             // post belongs to user

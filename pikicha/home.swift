@@ -39,6 +39,8 @@ class home: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         // always vertical scroll
         self.collectionView?.alwaysBounceVertical = true
         

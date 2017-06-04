@@ -27,7 +27,7 @@ class postsCell: UITableViewCell {
     
     // labels
     @IBOutlet weak var likeLbl: UILabel!
-    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var titleLbl: KILabel!
     @IBOutlet weak var uuidLbl: UILabel!
     
     
