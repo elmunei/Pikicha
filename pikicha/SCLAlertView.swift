@@ -350,6 +350,7 @@ open class SCLAlertView: UIViewController {
     // showWarning(view, title, subTitle)
     open func showWarning(_ title: String, subTitle: String, closeButtonTitle:String?=nil, duration:TimeInterval=0.0, colorStyle: UIColor = UIColor(red: 255/255, green: 209/255, blue: 16/255, alpha: 1.0), colorTextButton: UIColor = UIColor.black) -> SCLAlertViewResponder {
         return showTitle(title, subTitle: subTitle, duration: duration, completeText:closeButtonTitle, style: .warning, colorStyle: colorStyle, colorTextButton: colorTextButton)
+        
     }
 
     // showInfo(view, title, subTitle)

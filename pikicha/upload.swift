@@ -183,7 +183,7 @@ class upload: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
         // send #hashtag to server
         let words:[String] = titleTxt.text!.components(separatedBy: CharacterSet.whitespacesAndNewlines)
-        /*
+        
         // define taged word
         for var word in words {
             
@@ -209,7 +209,7 @@ class upload: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 })
             }
         }
-        */
+ 
         
         // finally save information
         object.saveInBackground (block: { (success, error) -> Void in
