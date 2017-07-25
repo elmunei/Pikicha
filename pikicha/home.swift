@@ -309,7 +309,7 @@ class home: UICollectionViewController {
                 UserDefaults.standard.removeObject(forKey: "username")
                 UserDefaults.standard.synchronize()
                 
-                let signin = self.storyboard?.instantiateViewController(withIdentifier: "signInVC") as! SignInViewController
+                let signin = self.storyboard?.instantiateViewController(withIdentifier: "login") as! loginVC
                 let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.window?.rootViewController = signin
                 
