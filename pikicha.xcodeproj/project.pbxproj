@@ -52,6 +52,16 @@
 		854364731EDF5267004C482A /* editProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854364721EDF5267004C482A /* editProfile.swift */; };
 		854364751EDF7C63004C482A /* upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854364741EDF7C63004C482A /* upload.swift */; };
 		854364791EDF8CEE004C482A /* navVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854364781EDF8CEE004C482A /* navVC.swift */; };
+		85438C5F1F277CD200745190 /* feedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C551F277CD200745190 /* feedVC.swift */; };
+		85438C601F277CD200745190 /* joinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C561F277CD200745190 /* joinVC.swift */; };
+		85438C611F277CD200745190 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C571F277CD200745190 /* loginVC.swift */; };
+		85438C621F277CD200745190 /* navigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C581F277CD200745190 /* navigationVC.swift */; };
+		85438C631F277CD200745190 /* notificationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C591F277CD200745190 /* notificationsCell.swift */; };
+		85438C641F277CD200745190 /* notificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C5A1F277CD200745190 /* notificationsVC.swift */; };
+		85438C651F277CD200745190 /* postVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C5B1F277CD200745190 /* postVC.swift */; };
+		85438C661F277CD200745190 /* profilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C5C1F277CD200745190 /* profilePictureVC.swift */; };
+		85438C671F277CD200745190 /* ResetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C5D1F277CD200745190 /* ResetVC.swift */; };
+		85438C681F277CD200745190 /* usersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85438C5E1F277CD200745190 /* usersVC.swift */; };
 		855682BC1EDD599D00879DDF /* RevealingSplashView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 855682BB1EDD599D00879DDF /* RevealingSplashView.framework */; };
 		8562FE941EDDF75E00D4388D /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8562FE911EDDF75E00D4388D /* ProgressHUD.bundle */; };
 		8562FE951EDDF75E00D4388D /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8562FE931EDDF75E00D4388D /* ProgressHUD.m */; };
@@ -136,6 +146,16 @@
 		854364721EDF5267004C482A /* editProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editProfile.swift; sourceTree = "<group>"; };
 		854364741EDF7C63004C482A /* upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = upload.swift; sourceTree = "<group>"; };
 		854364781EDF8CEE004C482A /* navVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navVC.swift; sourceTree = "<group>"; };
+		85438C551F277CD200745190 /* feedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = feedVC.swift; sourceTree = "<group>"; };
+		85438C561F277CD200745190 /* joinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = joinVC.swift; sourceTree = "<group>"; };
+		85438C571F277CD200745190 /* loginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
+		85438C581F277CD200745190 /* navigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = navigationVC.swift; sourceTree = "<group>"; };
+		85438C591F277CD200745190 /* notificationsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsCell.swift; sourceTree = "<group>"; };
+		85438C5A1F277CD200745190 /* notificationsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationsVC.swift; sourceTree = "<group>"; };
+		85438C5B1F277CD200745190 /* postVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postVC.swift; sourceTree = "<group>"; };
+		85438C5C1F277CD200745190 /* profilePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profilePictureVC.swift; sourceTree = "<group>"; };
+		85438C5D1F277CD200745190 /* ResetVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetVC.swift; sourceTree = "<group>"; };
+		85438C5E1F277CD200745190 /* usersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = usersVC.swift; sourceTree = "<group>"; };
 		855682BB1EDD599D00879DDF /* RevealingSplashView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealingSplashView.framework; path = "../../Library/Developer/Xcode/DerivedData/pikicha-dwionsjtdecmnychyvmgfdzrgjdo/Build/Products/Debug-iphoneos/RevealingSplashView/RevealingSplashView.framework"; sourceTree = "<group>"; };
 		8562FE911EDDF75E00D4388D /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		8562FE921EDDF75E00D4388D /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
@@ -308,6 +328,16 @@
 		851821711ED9C8D9002DED07 /* Gateway */ = {
 			isa = PBXGroup;
 			children = (
+				85438C551F277CD200745190 /* feedVC.swift */,
+				85438C561F277CD200745190 /* joinVC.swift */,
+				85438C571F277CD200745190 /* loginVC.swift */,
+				85438C581F277CD200745190 /* navigationVC.swift */,
+				85438C591F277CD200745190 /* notificationsCell.swift */,
+				85438C5A1F277CD200745190 /* notificationsVC.swift */,
+				85438C5B1F277CD200745190 /* postVC.swift */,
+				85438C5C1F277CD200745190 /* profilePictureVC.swift */,
+				85438C5D1F277CD200745190 /* ResetVC.swift */,
+				85438C5E1F277CD200745190 /* usersVC.swift */,
 				8518216B1ED9C858002DED07 /* SignInViewController.swift */,
 				8518216D1ED9C874002DED07 /* SignUpViewController.swift */,
 				8518216F1ED9C897002DED07 /* ResetPasswordViewController.swift */,
@@ -641,9 +671,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85438C601F277CD200745190 /* joinVC.swift in Sources */,
+				85438C611F277CD200745190 /* loginVC.swift in Sources */,
 				850DF4811EDD8AF50050AD0C /* pictureCell.swift in Sources */,
+				85438C661F277CD200745190 /* profilePictureVC.swift in Sources */,
 				85194B911EDCEDCC007C7BB9 /* PMAlertAction.swift in Sources */,
 				8518216E1ED9C874002DED07 /* SignUpViewController.swift in Sources */,
+				85438C651F277CD200745190 /* postVC.swift in Sources */,
 				857C7D3B1EE428E30037B9BA /* hashtagsVC.swift in Sources */,
 				854364751EDF7C63004C482A /* upload.swift in Sources */,
 				857C7D341EE2EF7F0037B9BA /* commentVC.swift in Sources */,
@@ -661,12 +695,18 @@
 				857C7D361EE2EFBA0037B9BA /* commentTableViewCell.swift in Sources */,
 				850DF4831EDDB9BE0050AD0C /* Followers.swift in Sources */,
 				8518216C1ED9C858002DED07 /* SignInViewController.swift in Sources */,
+				85438C621F277CD200745190 /* navigationVC.swift in Sources */,
 				851821231ED8A896002DED07 /* AppDelegate.swift in Sources */,
 				857C7D321EE247D90037B9BA /* CustomizableButton.swift in Sources */,
+				85438C641F277CD200745190 /* notificationsVC.swift in Sources */,
 				8562FE951EDDF75E00D4388D /* ProgressHUD.m in Sources */,
+				85438C681F277CD200745190 /* usersVC.swift in Sources */,
 				854364791EDF8CEE004C482A /* navVC.swift in Sources */,
+				85438C631F277CD200745190 /* notificationsCell.swift in Sources */,
+				85438C5F1F277CD200745190 /* feedVC.swift in Sources */,
 				854364731EDF5267004C482A /* editProfile.swift in Sources */,
 				850DF47D1EDD85140050AD0C /* home.swift in Sources */,
+				85438C671F277CD200745190 /* ResetVC.swift in Sources */,
 				851821701ED9C897002DED07 /* ResetPasswordViewController.swift in Sources */,
 				850C0A571EE1AFB600DA17BE /* posts.swift in Sources */,
 			);
